@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+.cmlMenu-bg{
+    background-color: #00a59a!important;
+}
+.error{
+    padding: 40px 15px;
+    text-align: center;
+}
+.maxWidth{
+    width:100%;
+}
+.albumImg{    
+    height: 50%;
+    width: auto;
+    max-width: 175px;
+    max-height: 175px;
+}
+.showAll{
+    background-color: #00a59a!important;
+    color:white;
+    border-radius: 0px;
+}
+.customsearch {
+    border-radius: 105px;
+    border:2px solid  #00a59a!important;
+    width: 400px;
+}
+.dropdown-menu{
+    background-color: #00a59a!important;
+    border: 1px solid #00a59a!important;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: rgba(0,0,0,.14);
+    cursor: pointer;
+}
+.mat-table{
+    background:#fff;
+    color: #000000;
+}
+.mat-cell{
+    color:#000000;
+}
+.tableHeader{
+    background-color:#00a59a!important;
+    color:#fff !important;
+}
+#navbarToggleMusic .nav-item a {
+    color: white;
+}
+#navbarToggleMusic .nav-item.active a {
+    color: white;    
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

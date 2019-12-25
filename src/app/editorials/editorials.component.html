@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div style="padding:10px;">
+        <div class="card">
+            <div class="card-header tableHeader">
+                Add New Albums
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="maxWidth">
+                            <mat-label>Title</mat-label>
+                            <input matInput [formControl]="ctrlTitleName" required />
+                            <mat-error *ngIf="ctrlTitleName.hasError('required') ||
+                            ctrlTitleName.invalid">
+                                Please enter Title Name.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="maxWidth">
+                            <mat-label>Album</mat-label>
+                            <input matInput [formControl]="ctrlAlbumName" required />
+                            <mat-error *ngIf="ctrlAlbumName.hasError('required') ||
+                            ctrlAlbumName.invalid">
+                                Please enter Album Name.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="maxWidth">
+                            <mat-label>Composer</mat-label>
+                            <input matInput [formControl]="ctrlComposerName" required />
+                            <mat-error *ngIf="ctrlComposerName.hasError('required') ||
+                            ctrlComposerName.invalid">
+                                Please enter Composer Name.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="maxWidth">
+                            <mat-label>Artist</mat-label>
+                            <input matInput [formControl]="ctrlArtistName" required />
+                            <mat-error *ngIf="ctrlArtistName.hasError('required') ||
+                            ctrlArtistName.invalid">
+                                Please enter Artist Name.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="maxWidth">
+                            <mat-label>Released Date</mat-label>
+                            <input matInput [matDatepicker]="dtReleased" required
+                            [formControl] = "ctrlRelDt" />
+                            <mat-datepicker-toggle matSuffix [for]="dtReleased"></mat-datepicker-toggle>
+                            <mat-datepicker #dtReleased></mat-datepicker>
+                            <mat-error *ngIf="ctrlRelDt.hasError('required') ||
+                            ctrlRelDt.invalid">
+                                Please enter released date (dd/mm/yyyy)
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="col-md-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Album Image</mat-label>
+                                    <input matInput [formControl]="ctrlImage" />
+                                </mat-form-field>
+                            </div> -->
+
+                </div>
+                <button class="btn btn-success text-center" (click)="onSubmit()">Submit</button>
+            </div>
+        </div>        
+        <br>
+        <a routerLink="/albums/"  class="btn btn-outline-success float-right showAll">Click here Show All ablums </a>                
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 maxWidth table-striped">  
+            <ng-container matColumnDef="titleName">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader">Title Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.titleName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="albumName">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"> Album Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.albumName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="composerName">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"> Composer Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.composerName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="releasedDate">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"> Released Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.releasedDate}} </td>
+            </ng-container>
+            <ng-container matColumnDef="artistName">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"> Artist Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.artistName}} </td>
+            </ng-container>  
+            <ng-container matColumnDef="albumimage">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader text-right">  </th>
+              <td mat-cell *matCellDef="let element"><img class="rounded float-right albumImg" src = '{{element.albumimage}}' /> </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

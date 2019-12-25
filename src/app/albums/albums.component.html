@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div style="padding:10px;">
+    <div class="row">
+      <div class="col-md-4">
+        &nbsp;
+      </div>
+      <div class="col-md-4">
+        &nbsp;
+      </div>
+      <div class="col-md-4">
+        <input class="form-control customsearch float-right" type ="search"
+        placeholder="Search" aria-label="Search" id="ctrlSearch"
+        #ctrlSearch (keyup) = "applySearchFilter($event.target.value)" />    
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">&nbsp;</div>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 maxWidth table-striped">  
+      <ng-container matColumnDef="titleName">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader">Title Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.titleName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="albumName">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader"> Album Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.albumName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="composerName">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader"> Composer Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.composerName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="releasedDate">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader"> Released Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.releasedDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="artistName">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader"> Artist Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.artistName}} </td>
+      </ng-container>  
+      <ng-container matColumnDef="albumimage">
+        <th mat-header-cell *matHeaderCellDef class="tableHeader text-right">  </th>
+        <td mat-cell *matCellDef="let element"><img class="rounded float-right albumImg" src = '{{element.albumimage}}' /> </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>   
+    <mat-paginator [pageSizeOptions] = "[5,10]" #pg></mat-paginator>
+  </div>
+</div>

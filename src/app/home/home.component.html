@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div style="padding:10px;">
+        <div class="card-deck" >
+            <div class ="row" >
+                <div class ="col-md-3" *ngFor = "let music of dataSource">
+                <div class="card">
+                        <a routerLink="albums/{{music.albumName}}">
+                        <img src="{{music.albumimage}}" class="card-img-top img-thumbnail" alt="...">
+                        </a>
+                        <div class="card-body">
+                        <h5 class="card-title">{{music.albumName}}</h5>
+                        <p class="card-text">Composed By: {{music.composerName}}</p>
+                        <p class="card-text"><small class="text-muted">Released On {{music.releasedDate}}</small></p>
+                    </div>
+                </div>
+                <br />
+            </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
